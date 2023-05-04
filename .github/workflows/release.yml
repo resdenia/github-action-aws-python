@@ -33,7 +33,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: cloudwatch.zip
+        files: python3/cloudwatch/dist/logzio-cloudwatch-log-shipper.zip
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GIT }}  
   # upload_to_buckets:
