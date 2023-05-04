@@ -31,7 +31,7 @@ jobs:
         else
           cd python3/kinesis
           make
-          echo "release_file_path=python3/kinesis/dist/logzio-cloudwatch-log-shipper.zip" >> "$GITHUB_ENV"
+          echo "release_file_path=python3/kinesis/dist/logzio-kinesis-log-shipper.zip" >> "$GITHUB_ENV"
         fi
     - name: Release
       uses: softprops/action-gh-release@v1
