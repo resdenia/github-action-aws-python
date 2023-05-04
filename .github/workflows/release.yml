@@ -24,16 +24,20 @@ jobs:
  
     - name: Zip Folder
       run: |
-        cd python3/cloudwatch
-        make
-        ls
-      # zip -r ${{ github.event.repository.name }}.zip . -x ".git/*" ".github/*" "phpcs.xml" "composer.json" "composer.lock" ".gitignore"
-
+        if [[ "${{ env.integration }}" = "CloudWatch" ]]; then
+          cd python3/cloudwatch
+          make        
+          echo "release_file_path=python3/cloudwatch/dist/logzio-cloudwatch-log-shipper.zip" >> "$GITHUB_ENV"
+        else
+          cd python3/kinesis
+          make
+          echo "release_file_path=python3/kinesis/dist/logzio-cloudwatch-log-shipper.zip" >> "$GITHUB_ENV"
+        fi
     - name: Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: python3/cloudwatch/dist/logzio-cloudwatch-log-shipper.zip
+        files: ${{ env.release_file_path }}
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN_GIT }}  
   # upload_to_buckets:
