@@ -25,7 +25,7 @@ jobs:
     - name: Zip Folder
       run: |
         cd python3/cloudwatch
-        makefile build
+        make
         ls
       # zip -r ${{ github.event.repository.name }}.zip . -x ".git/*" ".github/*" "phpcs.xml" "composer.json" "composer.lock" ".gitignore"
 
