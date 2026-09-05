@@ -7,3 +7,6 @@ This project contains code for Python 2 and Python 3.
 We urge you to use Python 3 because Python 2.7 will reach end of life on January 1, 2020.
  
 [Get started with Python 3](https://github.com/logzio/logzio_aws_serverless/tree/master/python3)
+
+
+<!-- Security scan triggered at 2026-09-05 07:42:24 -->
